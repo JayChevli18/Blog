@@ -6,6 +6,7 @@ import { SearchInput } from "./SearchInput";
 import { Button } from "@/components/ui/button";
 import { Menu, Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { SignedIn, SignedOut, SignInButton, SignOutButton, SignUpButton, UserButton } from "@clerk/nextjs";
 
 export const Navbar = () => {
 
@@ -59,10 +60,21 @@ export const Navbar = () => {
                     <div className="flex items-center md:gap-4">
                         <SearchInput></SearchInput>
                         <ToggleMode></ToggleMode>
-                        <div className="hidden md:flex items-center gap-2">
-                            <Button variant={"outline"}>Login</Button>
-                            <Button>Signup</Button>
-                        </div>
+
+                        <SignedIn>
+                            <UserButton></UserButton>
+                        </SignedIn>
+                        <SignedOut>
+                            <div className="hidden md:flex items-center gap-2">
+                                <SignInButton>
+                                <Button variant={"outline"}>Login</Button>
+                                </SignInButton>
+                                <SignUpButton>
+                                <Button>Signup</Button>
+                                </SignUpButton>
+                            </div>
+                        </SignedOut>
+
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -134,12 +146,12 @@ export const Navbar = () => {
                     </div>
 
                     {/* Mobile Auth Buttons */}
-                        <div className="px-4 flex flex-col gap-2">
-                                <Button variant="outline" className="w-full">
-                                    Login
-                                </Button>
-                                <Button className="w-full">Sign up</Button>
-                        </div>
+                    <div className="px-4 flex flex-col gap-2">
+                        <Button variant="outline" className="w-full">
+                            Login
+                        </Button>
+                        <Button className="w-full">Sign up</Button>
+                    </div>
                 </div>
             )}
         </nav>

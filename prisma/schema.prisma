@@ -19,7 +19,7 @@ model User {
   email       String     @unique
   name        String
   imageUrl    String?
-  role        String
+  role        String?
   articles    Articles[]
   comments    Comment[]
   like        Like[]

@@ -30,9 +30,11 @@ export default function Home() {
               </Button>
             </Link>
           </div>
+          <div className="pt-4">
+          <TopArticles></TopArticles>
+          </div>
         </div>
       </section>
-      <TopArticles></TopArticles>
       <BlogFooter></BlogFooter>
     </div>
   );
